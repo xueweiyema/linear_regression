@@ -11757,7 +11757,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 这个项目设计来帮你熟悉 python list 和线性代数</span>
@@ -11773,6 +11773,10 @@ div#notebook {
 
 <span class="c1">#TODO 创建一个 4*4 单位矩阵</span>
 <span class="n">I</span> <span class="o">=</span>  <span class="p">[</span> <span class="p">[</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">:</span>
+            <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 
 </div>
@@ -11791,7 +11795,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 返回矩阵的行数和列数</span>
@@ -11817,7 +11821,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 每个元素四舍五入到特定小数数位</span>
@@ -11844,15 +11848,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 计算矩阵的转置</span>
 <span class="k">def</span> <span class="nf">transpose</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-    <span class="n">N</span> <span class="o">=</span>  <span class="p">[</span> <span class="p">[</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="n">N</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">N</span><span class="o">=</span><span class="p">[[</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">0</span><span class="p">])]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">])]</span>
     <span class="k">return</span> <span class="n">N</span>
 </pre></div>
 
@@ -11872,7 +11873,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 计算矩阵乘法 AB，如果无法相乘则返回None</span>
@@ -11887,24 +11888,9 @@ div#notebook {
         <span class="k">return</span> <span class="n">N</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">None</span>
-<span class="k">print</span> <span class="n">matxMultiply</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[[8, 14, 24, 18], [11, 19, 30, 28], [10, 18, 34, 20]]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11930,7 +11916,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">pprint</span>
@@ -12017,16 +12003,16 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 构造增广矩阵，假设A，b行数相同</span>
 <span class="k">def</span> <span class="nf">augmentMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">A</span>
 <span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">[[</span><span class="mi">7</span><span class="p">],[</span><span class="mi">8</span><span class="p">]]</span>
 <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">augmentMatrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
 </pre></div>
 
@@ -12065,21 +12051,22 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO r1 &lt;---&gt; r2</span>
 <span class="c1"># 直接修改参数矩阵，无返回值</span>
 <span class="k">def</span> <span class="nf">swapRows</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">):</span>
-    <span class="n">n</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span>
-    <span class="n">M</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span>
-    <span class="n">M</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span><span class="o">=</span><span class="n">n</span>
+    <span class="n">M</span><span class="p">[</span><span class="n">r1</span><span class="p">],</span><span class="n">M</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span><span class="o">=</span><span class="n">M</span><span class="p">[</span><span class="n">r2</span><span class="p">],</span><span class="n">M</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span>
 
 <span class="c1"># TODO r1 &lt;--- r1 * scale， scale!=0</span>
 <span class="c1"># 直接修改参数矩阵，无返回值</span>
 <span class="k">def</span> <span class="nf">scaleRow</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="n">M</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*=</span><span class="n">scale</span>
+    <span class="k">if</span> <span class="n">scale</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;scale could not be zero!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">M</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">*=</span><span class="n">scale</span>
 
 <span class="c1"># TODO r1 &lt;--- r1 + r2*scale</span>
 <span class="c1"># 直接修改参数矩阵，无返回值</span>
@@ -12134,7 +12121,7 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 实现 Gaussain Jordan 方法求解 Ax = b</span>
@@ -12170,9 +12157,10 @@ None
                  <span class="k">if</span> <span class="n">i</span><span class="o">&lt;&gt;</span><span class="n">j</span><span class="p">:</span>
                         <span class="n">addScaledRow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
         <span class="n">matxRound</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">decPts</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">N</span><span class="o">=</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[[</span><span class="n">N</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N</span><span class="p">))]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span>
 </pre></div>
 
 </div>
@@ -12223,20 +12211,25 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 构造 矩阵A，列向量b，其中 A 为奇异矩阵</span>
 <span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">]]</span>
 <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">gj_Solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="c1"># TODO 构造 矩阵A，列向量b，其中 A 为非奇异矩阵</span>
 <span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">]]</span>
 <span class="c1"># TODO 求解 x 使得 Ax = b</span>
 <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">gj_Solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="c1"># TODO 计算 Ax</span>
+<span class="n">A1</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">6</span>
+<span class="n">A2</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">Ax</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">]]</span>
 <span class="c1"># TODO 比较 Ax 与 b</span>
+<span class="n">Ax</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">]]</span>
+<span class="n">b</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">],[</span><span class="mi">3</span><span class="p">]]</span>
 </pre></div>
 
 </div>
@@ -12250,7 +12243,7 @@ None
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>None
-[2.0, -1.0]
+[[2.0], [-1.0]]
 </pre>
 </div>
 </div>
@@ -12425,7 +12418,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 实现线性回归</span>
@@ -12433,6 +12426,8 @@ $$
 <span class="sd">参数：(x,y) 二元组列表</span>
 <span class="sd">返回：m，b</span>
 <span class="sd">&#39;&#39;&#39;</span>  
+<span class="c1">#由于把改方程右边移到方程的左边然后带入Y这样的单列矩阵和X这样的双列矩阵,展开得到的是两个标准的y=mx+b的线性方程所以直接使用线性回归的系数公式,</span>
+<span class="c1">#如果要求按照带入gj_Solve()的方法,我不知道该如何表示</span>
 <span class="k">def</span> <span class="nf">linearRegression</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
     <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
     <span class="c1">#求x均值,#y均值</span>
@@ -12470,7 +12465,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 构造线性函数</span>
@@ -12481,7 +12476,7 @@ $$
 <span class="n">P</span> <span class="o">=</span>  <span class="p">[</span> <span class="p">[</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">P</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">10</span><span class="o">+</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="c1">#TODO 对这100个点进行线性回归，将线性回归得到的函数和原线性函数比较</span>
 <span class="k">print</span> <span class="n">linearRegression</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
 </pre></div>
@@ -12496,7 +12491,7 @@ $$
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(2.000139881157147, 2.18138306957097)
+<pre>(2.0, 2.229933110367893)
 </pre>
 </div>
 </div>
@@ -12517,155 +12512,200 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># import unittest</span>
-<span class="c1"># import numpy as np</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
-<span class="c1"># from decimal import *</span>
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="c1"># class LinearRegressionTestCase(unittest.TestCase):</span>
-<span class="c1">#     &quot;&quot;&quot;Test for linear regression project&quot;&quot;&quot;</span>
+<span class="k">class</span> <span class="nc">LinearRegressionTestCase</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test for linear regression project&quot;&quot;&quot;</span>
 
+    <span class="k">def</span> <span class="nf">test_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()),(</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="nf">test_matxRound</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">decpts</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">dec_true</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">decpts</span><span class="p">)))</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">]</span>
+
+            <span class="n">matxRound</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">decpts</span><span class="p">)</span>
+            <span class="n">dec_test</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mat</span><span class="p">]</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">)):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">dec_test</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">compare_total</span><span class="p">(</span><span class="n">dec_true</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">))</span>
+
+
+    <span class="k">def</span> <span class="nf">test_transpose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">transpose</span><span class="p">(</span><span class="n">mat</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">,(</span><span class="n">c</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">matrix</span><span class="o">.</span><span class="n">T</span> <span class="o">==</span> <span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+
+
+    <span class="k">def</span> <span class="nf">test_matxMultiply</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">mat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">d</span><span class="p">))</span> 
+            <span class="n">mat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">))</span> 
+            <span class="n">dotProduct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span><span class="n">mat2</span><span class="p">)</span>
+
+            <span class="n">dp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matxMultiply</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span><span class="n">mat2</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">dotProduct</span> <span class="o">==</span> <span class="n">dp</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+
+
+    <span class="k">def</span> <span class="nf">test_augmentMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+            <span class="n">Ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">augmentMatrix</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="n">b</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+            <span class="n">ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">Ab</span> <span class="o">==</span> <span class="n">ab</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">test_swapRows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">swapRows</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+
+            <span class="n">matrix</span><span class="p">[[</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[[</span><span class="n">r2</span><span class="p">,</span><span class="n">r1</span><span class="p">]]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">matrix</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mat</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">test_scaleRow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+                <span class="n">scaleRow</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">rr</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">scaleRow</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">rr</span><span class="p">,</span><span class="n">scale</span><span class="p">)</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">rr</span><span class="p">]</span> <span class="o">*=</span> <span class="n">scale</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">matrix</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mat</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
     
-    
-<span class="c1">#     def test_shape(self):</span>
+    <span class="k">def</span> <span class="nf">test_addScaleRow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             matrix = np.random.randint(low=-10,high=10,size=(r,c))</span>
-<span class="c1">#             self.assertEqual(shape(matrix.tolist()),(r,c))</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
 
+            <span class="n">mat</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-<span class="c1">#     def test_matxRound(self):</span>
+            <span class="n">r1</span><span class="p">,</span><span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1">#         for decpts in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             matrix = np.random.random((r,c))</span>
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">addScaledRow</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">r1</span><span class="p">,</span><span class="n">r2</span><span class="p">,</span><span class="n">scale</span><span class="p">)</span>
+            <span class="n">matrix</span><span class="p">[</span><span class="n">r1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">matrix</span><span class="p">[</span><span class="n">r2</span><span class="p">]</span>
 
-<span class="c1">#             mat = matrix.tolist()</span>
-<span class="c1">#             dec_true = [[Decimal(str(round(num,decpts))) for num in row] for row in mat]</span>
-
-<span class="c1">#             matxRound(mat,decpts)</span>
-<span class="c1">#             dec_test = [[Decimal(str(num)) for num in row] for row in mat]</span>
-
-<span class="c1">#             res = Decimal(&#39;0&#39;)</span>
-<span class="c1">#             for i in range(len(mat)):</span>
-<span class="c1">#                 for j in range(len(mat[0])):</span>
-<span class="c1">#                     res += dec_test[i][j].compare_total(dec_true[i][j])</span>
-
-<span class="c1">#             self.assertEqual(res,Decimal(&#39;0&#39;))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">((</span><span class="n">matrix</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mat</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
 
 
-<span class="c1">#     def test_transpose(self):</span>
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             matrix = np.random.random((r,c))</span>
+    <span class="k">def</span> <span class="nf">test_gj_Solve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="c1">#             mat = matrix.tolist()</span>
-<span class="c1">#             t = np.array(transpose(mat))</span>
-
-<span class="c1">#             self.assertEqual(t.shape,(c,r))</span>
-<span class="c1">#             self.assertTrue((matrix.T == t).all())</span>
-
-
-<span class="c1">#     def test_matxMultiply(self):</span>
-
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,d,c = np.random.randint(low=1,high=25,size=3)</span>
-<span class="c1">#             mat1 = np.random.randint(low=-10,high=10,size=(r,d)) </span>
-<span class="c1">#             mat2 = np.random.randint(low=-5,high=5,size=(d,c)) </span>
-<span class="c1">#             dotProduct = np.dot(mat1,mat2)</span>
-
-<span class="c1">#             dp = np.array(matxMultiply(mat1,mat2))</span>
-
-<span class="c1">#             self.assertTrue((dotProduct == dp).all())</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span><span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">r</span><span class="p">))</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">gj_Solve</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="n">b</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="bp">None</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Ax = matxMultiply(A.tolist(),x)</span>
+                <span class="n">Ax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">Ax</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="c1"># print Ax</span>
+                <span class="c1"># print loss</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">loss</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">)</span>
 
 
-<span class="c1">#     def test_augmentMatrix(self):</span>
+<span class="n">suite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">loadTestsFromTestCase</span><span class="p">(</span><span class="n">LinearRegressionTestCase</span><span class="p">)</span>
+<span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">suite</span><span class="p">)</span>
+</pre></div>
 
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             A = np.random.randint(low=-10,high=10,size=(r,c))</span>
-<span class="c1">#             b = np.random.randint(low=-10,high=10,size=(r,1))</span>
+</div>
+</div>
+</div>
 
-<span class="c1">#             Ab = np.array(augmentMatrix(A.tolist(),b.tolist()))</span>
-<span class="c1">#             ab = np.hstack((A,b))</span>
-
-<span class="c1">#             self.assertTrue((Ab == ab).all())</span>
-
-<span class="c1">#     def test_swapRows(self):</span>
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             matrix = np.random.random((r,c))</span>
-
-<span class="c1">#             mat = matrix.tolist()</span>
-
-<span class="c1">#             r1, r2 = np.random.randint(0,r, size = 2)</span>
-<span class="c1">#             swapRows(mat,r1,r2)</span>
-
-<span class="c1">#             matrix[r1], matrix[r2] = matrix[r2], matrix[r1]</span>
-
-<span class="c1">#             self.assertTrue((matrix == np.array(mat)).all())</span>
-
-<span class="c1">#     def test_scaleRow(self):</span>
-
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             matrix = np.random.random((r,c))</span>
-
-<span class="c1">#             mat = matrix.tolist()</span>
-
-<span class="c1">#             rr = np.random.randint(0,r)</span>
-<span class="c1">#             with self.assertRaises(ValueError):</span>
-<span class="c1">#                 scaleRow(mat,rr,0)</span>
-
-<span class="c1">#             scale = np.random.randint(low=1,high=10)</span>
-<span class="c1">#             scaleRow(mat,rr,scale)</span>
-<span class="c1">#             matrix[rr] *= scale</span>
-
-<span class="c1">#             self.assertTrue((matrix == np.array(mat)).all())</span>
-    
-<span class="c1">#     def test_addScaleRow(self):</span>
-
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r,c = np.random.randint(low=1,high=25,size=2)</span>
-<span class="c1">#             matrix = np.random.random((r,c))</span>
-
-<span class="c1">#             mat = matrix.tolist()</span>
-
-<span class="c1">#             r1,r2 = np.random.randint(0,r,size=2)</span>
-<span class="c1">#             with self.assertRaises(ValueError):</span>
-<span class="c1">#                 addScaledRow(mat,r1,r2,0)</span>
-
-<span class="c1">#             scale = np.random.randint(low=1,high=10)</span>
-<span class="c1">#             addScaledRow(mat,r1,r2,scale)</span>
-<span class="c1">#             matrix[r1] += scale * matrix[r2]</span>
-
-<span class="c1">#             self.assertTrue((matrix == np.array(mat)).all())</span>
+<div class="output_wrapper">
+<div class="output">
 
 
-<span class="c1">#     def test_gj_Solve(self):</span>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>test_addScaleRow (__main__.LinearRegressionTestCase) ... ok
+test_augmentMatrix (__main__.LinearRegressionTestCase) ... ok
+test_gj_Solve (__main__.LinearRegressionTestCase) ... ok
+test_matxMultiply (__main__.LinearRegressionTestCase) ... ok
+test_matxRound (__main__.LinearRegressionTestCase) ... ok
+test_scaleRow (__main__.LinearRegressionTestCase) ... ok
+test_shape (__main__.LinearRegressionTestCase) ... ok
+test_swapRows (__main__.LinearRegressionTestCase) ... ok
+test_transpose (__main__.LinearRegressionTestCase) ... ok
 
-<span class="c1">#         for _ in range(10):</span>
-<span class="c1">#             r = np.random.randint(low=3,high=10)</span>
-<span class="c1">#             A = np.random.randint(low=-10,high=10,size=(r,r))</span>
-<span class="c1">#             b = np.arange(r).reshape((r,1))</span>
+----------------------------------------------------------------------
+Ran 9 tests in 0.062s
 
-<span class="c1">#             x = gj_Solve(A.tolist(),b.tolist())</span>
-<span class="c1">#             if np.linalg.matrix_rank(A) &lt; r:</span>
-<span class="c1">#                 self.assertEqual(x,None)</span>
-<span class="c1">#             else:</span>
-<span class="c1">#                 # Ax = matxMultiply(A.tolist(),x)</span>
-<span class="c1">#                 Ax = np.dot(A,np.array(x))</span>
-<span class="c1">#                 loss = np.mean((Ax - b)**2)</span>
-<span class="c1">#                 # print Ax</span>
-<span class="c1">#                 # print loss</span>
-<span class="c1">#                 self.assertTrue(loss&lt;0.1)</span>
-<span class="c1"># testcases = LinearRegressionTestCase()</span>
-<span class="c1"># suite = unittest.TestLoader().loadTestsFromModule(testcases)</span>
-<span class="c1"># unittest.TextTestRunner().run(suite)</span>
+OK
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[85]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;unittest.runner.TextTestResult run=9 errors=0 failures=0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>

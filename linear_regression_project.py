@@ -5,7 +5,7 @@
 # 
 # ## 1.1 创建一个 4*4 的单位矩阵
 
-# In[54]:
+# In[1]:
 
 # 这个项目设计来帮你熟悉 python list 和线性代数
 # 你不能调用任何python库，包括NumPy，来完成作业
@@ -20,11 +20,15 @@ B = [[1,2,3,5],
 
 #TODO 创建一个 4*4 单位矩阵
 I =  [ [ 0 for i in range(4) ] for j in range(4) ]
+for i in range(4):
+    for j in range(4):
+        if i==j:
+            I[i][j]=1
 
 
 # ## 1.2 返回矩阵的行数和列数
 
-# In[55]:
+# In[2]:
 
 # TODO 返回矩阵的行数和列数
 def shape(M):
@@ -35,7 +39,7 @@ def shape(M):
 
 # ## 1.3 每个元素四舍五入到特定小数数位
 
-# In[56]:
+# In[3]:
 
 # TODO 每个元素四舍五入到特定小数数位
 # 直接修改参数矩阵，无返回值
@@ -47,20 +51,17 @@ def matxRound(M, decPts=4):
 
 # ## 1.4 计算矩阵的转置
 
-# In[57]:
+# In[4]:
 
 # TODO 计算矩阵的转置
 def transpose(M):
-    N =  [ [ 0 for i in range(shape(M)[0]) ] for j in range(shape(M)[1]) ]
-    for i in range(shape(M)[0]):
-        for j in range(shape(M)[1]):
-            N[j][i]=M[i][j]
+    N=[[M[i][j] for i in range(shape(M)[0])] for j in range(shape(M)[1])]
     return N
 
 
 # ## 1.5 计算矩阵乘法 AB
 
-# In[58]:
+# In[5]:
 
 
 # TODO 计算矩阵乘法 AB，如果无法相乘则返回None
@@ -75,14 +76,13 @@ def matxMultiply(A, B):
         return N
     else:
         return None
-print matxMultiply(A,B)
 
 
 # ## 1.6 测试你的函数是否实现正确
 
 # **提示：** 你可以用`from pprint import pprint`来更漂亮的打印数据，详见[用法示例](http://cn-static.udacity.com/mlnd/images/pprint.png)和[文档说明](https://docs.python.org/2/library/pprint.html#pprint.pprint)。
 
-# In[59]:
+# In[6]:
 
 import pprint
 pp=pprint.PrettyPrinter(indent=1,width=30)
@@ -131,15 +131,15 @@ pp.pprint(matxMultiply(A,B))
 #     ...    & ... & ... & ...& ...\\
 #     a_{n1}    & a_{n2} & ... & a_{nn} & b_{n} \end{bmatrix}$
 
-# In[60]:
+# In[7]:
 
 # TODO 构造增广矩阵，假设A，b行数相同
 def augmentMatrix(A, b):
     for i in range(shape(A)[0]):
-        A[i].append(b[i])
+        A[i].append(b[i][0])
     return A
 A=[[1,2,3],[4,5,6]]
-b=[7,8]
+b=[[7],[8]]
 pp.pprint(augmentMatrix(A,b))
 
 
@@ -148,20 +148,21 @@ pp.pprint(augmentMatrix(A,b))
 # - 把某行乘以一个非零常数
 # - 把某行加上另一行的若干倍：
 
-# In[61]:
+# In[8]:
 
 # TODO r1 <---> r2
 # 直接修改参数矩阵，无返回值
 def swapRows(M, r1, r2):
-    n=M[r1]
-    M[r1]=M[r2]
-    M[r2]=n
+    M[r1],M[r2]=M[r2],M[r1]
 
 # TODO r1 <--- r1 * scale， scale!=0
 # 直接修改参数矩阵，无返回值
 def scaleRow(M, r, scale):
-    for i in range(shape(M)[1]):
-        M[r][i]*=scale
+    if scale==0:
+        raise ValueError('scale could not be zero!')
+    else:
+        for i in range(shape(M)[1]):
+            M[r][i]*=scale
 
 # TODO r1 <--- r1 + r2*scale
 # 直接修改参数矩阵，无返回值
@@ -199,7 +200,7 @@ def addScaledRow(M, r1, r2, scale):
 # ### 注：
 # 我们并没有按照常规方法先把矩阵转化为行阶梯形矩阵，再转换为化简行阶梯形矩阵，而是一步到位。如果你熟悉常规方法的话，可以思考一下两者的等价性。
 
-# In[62]:
+# In[79]:
 
 # TODO 实现 Gaussain Jordan 方法求解 Ax = b
 
@@ -234,9 +235,10 @@ def gj_Solve(A, b, decPts=4, epsilon = 1.0e-16):
                  if i<>j:
                         addScaledRow(A, i, j, -1.0*A[i][j])
         matxRound(A,decPts)
-        return transpose(A)[-1]
+        N=transpose(A)[-1]
+        return [[N[j]] for j in range(len(N))]
     else:
-        return None
+        raise ValueError
 
 
 # ## 2.4 证明下面的命题：
@@ -261,19 +263,24 @@ def gj_Solve(A, b, decPts=4, epsilon = 1.0e-16):
 
 # ## 2.5 测试 gj_Solve() 实现是否正确
 
-# In[63]:
+# In[80]:
 
 # TODO 构造 矩阵A，列向量b，其中 A 为奇异矩阵
 A=[[3,6],[0,0]]
-b=[0,3]
+b=[[0],[3]]
 pp.pprint(gj_Solve(A,b,2))
 # TODO 构造 矩阵A，列向量b，其中 A 为非奇异矩阵
 A=[[3,6],[2,1]]
-b=[0,3]
+b=[[0],[3]]
 # TODO 求解 x 使得 Ax = b
 pp.pprint(gj_Solve(A,b,2))
 # TODO 计算 Ax
+A1=3*2-6
+A2=2*2-1
+Ax=[[0],[3]]
 # TODO 比较 Ax 与 b
+Ax=[[0],[3]]
+b=[[0],[3]]
 
 
 # # 3 线性回归: 
@@ -425,13 +432,15 @@ pp.pprint(gj_Solve(A,b,2))
 # 
 # ### 求解方程 $X^TXh = X^TY $, 计算线性回归的最佳参数 h
 
-# In[64]:
+# In[81]:
 
 # TODO 实现线性回归
 '''
 参数：(x,y) 二元组列表
 返回：m，b
 '''  
+#由于把改方程右边移到方程的左边然后带入Y这样的单列矩阵和X这样的双列矩阵,展开得到的是两个标准的y=mx+b的线性方程所以直接使用线性回归的系数公式,
+#如果要求按照带入gj_Solve()的方法,我不知道该如何表示
 def linearRegression(points):
     n=len(points)
     #求x均值,#y均值
@@ -455,7 +464,7 @@ def linearRegression(points):
 
 # ## 3.3 测试你的线性回归实现
 
-# In[65]:
+# In[82]:
 
 # TODO 构造线性函数
 
@@ -465,7 +474,7 @@ import random
 P =  [ [ 0 for i in range(2) ] for j in range(100) ]
 for i in range(100):
     P[i][0]=random.randint(0, 100)
-    P[i][1]=random.gauss(2*P[i][0]+10,0.25)
+    P[i][1]=2*P[i][0]+10+random.gauss(1,0)
 #TODO 对这100个点进行线性回归，将线性回归得到的函数和原线性函数比较
 print linearRegression(P)
 
@@ -474,154 +483,155 @@ print linearRegression(P)
 # 
 # 请确保你的实现通过了以下所有单元测试。
 
-# In[66]:
+# In[85]:
 
-# import unittest
-# import numpy as np
+import unittest
+import numpy as np
 
-# from decimal import *
+from decimal import *
 
-# class LinearRegressionTestCase(unittest.TestCase):
-#     """Test for linear regression project"""
+class LinearRegressionTestCase(unittest.TestCase):
+    """Test for linear regression project"""
 
+    def test_shape(self):
+
+        for _ in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            matrix = np.random.randint(low=-10,high=10,size=(r,c))
+            self.assertEqual(shape(matrix.tolist()),(r,c))
+
+
+    def test_matxRound(self):
+
+        for decpts in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            matrix = np.random.random((r,c))
+
+            mat = matrix.tolist()
+            dec_true = [[Decimal(str(round(num,decpts))) for num in row] for row in mat]
+
+            matxRound(mat,decpts)
+            dec_test = [[Decimal(str(num)) for num in row] for row in mat]
+
+            res = Decimal('0')
+            for i in range(len(mat)):
+                for j in range(len(mat[0])):
+                    res += dec_test[i][j].compare_total(dec_true[i][j])
+
+            self.assertEqual(res,Decimal('0'))
+
+
+    def test_transpose(self):
+        for _ in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            matrix = np.random.random((r,c))
+
+            mat = matrix.tolist()
+            t = np.array(transpose(mat))
+
+            self.assertEqual(t.shape,(c,r))
+            self.assertTrue((matrix.T == t).all())
+
+
+    def test_matxMultiply(self):
+
+        for _ in range(10):
+            r,d,c = np.random.randint(low=1,high=25,size=3)
+            mat1 = np.random.randint(low=-10,high=10,size=(r,d)) 
+            mat2 = np.random.randint(low=-5,high=5,size=(d,c)) 
+            dotProduct = np.dot(mat1,mat2)
+
+            dp = np.array(matxMultiply(mat1,mat2))
+
+            self.assertTrue((dotProduct == dp).all())
+
+
+    def test_augmentMatrix(self):
+
+        for _ in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            A = np.random.randint(low=-10,high=10,size=(r,c))
+            b = np.random.randint(low=-10,high=10,size=(r,1))
+
+            Ab = np.array(augmentMatrix(A.tolist(),b.tolist()))
+            ab = np.hstack((A,b))
+
+            self.assertTrue((Ab == ab).all())
+
+    def test_swapRows(self):
+        for _ in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            matrix = np.random.random((r,c))
+
+            mat = matrix.tolist()
+
+            r1, r2 = np.random.randint(0,r, size = 2)
+            swapRows(mat,r1,r2)
+
+            matrix[[r1,r2]] = matrix[[r2,r1]]
+
+            self.assertTrue((matrix == np.array(mat)).all())
+
+    def test_scaleRow(self):
+
+        for _ in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            matrix = np.random.random((r,c))
+
+            mat = matrix.tolist()
+
+            rr = np.random.randint(0,r)
+            with self.assertRaises(ValueError):
+                scaleRow(mat,rr,0)
+
+            scale = np.random.randint(low=1,high=10)
+            scaleRow(mat,rr,scale)
+            matrix[rr] *= scale
+
+            self.assertTrue((matrix == np.array(mat)).all())
     
-    
-#     def test_shape(self):
+    def test_addScaleRow(self):
 
-#         for _ in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             matrix = np.random.randint(low=-10,high=10,size=(r,c))
-#             self.assertEqual(shape(matrix.tolist()),(r,c))
+        for _ in range(10):
+            r,c = np.random.randint(low=1,high=25,size=2)
+            matrix = np.random.random((r,c))
 
+            mat = matrix.tolist()
 
-#     def test_matxRound(self):
+            r1,r2 = np.random.randint(0,r,size=2)
 
-#         for decpts in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             matrix = np.random.random((r,c))
+            scale = np.random.randint(low=1,high=10)
+            addScaledRow(mat,r1,r2,scale)
+            matrix[r1] += scale * matrix[r2]
 
-#             mat = matrix.tolist()
-#             dec_true = [[Decimal(str(round(num,decpts))) for num in row] for row in mat]
-
-#             matxRound(mat,decpts)
-#             dec_test = [[Decimal(str(num)) for num in row] for row in mat]
-
-#             res = Decimal('0')
-#             for i in range(len(mat)):
-#                 for j in range(len(mat[0])):
-#                     res += dec_test[i][j].compare_total(dec_true[i][j])
-
-#             self.assertEqual(res,Decimal('0'))
+            self.assertTrue((matrix == np.array(mat)).all())
 
 
-#     def test_transpose(self):
-#         for _ in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             matrix = np.random.random((r,c))
+    def test_gj_Solve(self):
 
-#             mat = matrix.tolist()
-#             t = np.array(transpose(mat))
-
-#             self.assertEqual(t.shape,(c,r))
-#             self.assertTrue((matrix.T == t).all())
-
-
-#     def test_matxMultiply(self):
-
-#         for _ in range(10):
-#             r,d,c = np.random.randint(low=1,high=25,size=3)
-#             mat1 = np.random.randint(low=-10,high=10,size=(r,d)) 
-#             mat2 = np.random.randint(low=-5,high=5,size=(d,c)) 
-#             dotProduct = np.dot(mat1,mat2)
-
-#             dp = np.array(matxMultiply(mat1,mat2))
-
-#             self.assertTrue((dotProduct == dp).all())
+        for _ in range(10):
+            r = np.random.randint(low=3,high=10)
+            A = np.random.randint(low=-10,high=10,size=(r,r))
+            b = np.arange(r).reshape((r,1))
+            x = gj_Solve(A.tolist(),b.tolist())
+            if np.linalg.matrix_rank(A) < r:
+                self.assertEqual(x,None)
+            else:
+                # Ax = matxMultiply(A.tolist(),x)
+                Ax = np.dot(A,np.array(x))
+                loss = np.mean((Ax - b)**2)
+                # print Ax
+                # print loss
+                self.assertTrue(loss<0.1)
 
 
-#     def test_augmentMatrix(self):
-
-#         for _ in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             A = np.random.randint(low=-10,high=10,size=(r,c))
-#             b = np.random.randint(low=-10,high=10,size=(r,1))
-
-#             Ab = np.array(augmentMatrix(A.tolist(),b.tolist()))
-#             ab = np.hstack((A,b))
-
-#             self.assertTrue((Ab == ab).all())
-
-#     def test_swapRows(self):
-#         for _ in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             matrix = np.random.random((r,c))
-
-#             mat = matrix.tolist()
-
-#             r1, r2 = np.random.randint(0,r, size = 2)
-#             swapRows(mat,r1,r2)
-
-#             matrix[r1], matrix[r2] = matrix[r2], matrix[r1]
-
-#             self.assertTrue((matrix == np.array(mat)).all())
-
-#     def test_scaleRow(self):
-
-#         for _ in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             matrix = np.random.random((r,c))
-
-#             mat = matrix.tolist()
-
-#             rr = np.random.randint(0,r)
-#             with self.assertRaises(ValueError):
-#                 scaleRow(mat,rr,0)
-
-#             scale = np.random.randint(low=1,high=10)
-#             scaleRow(mat,rr,scale)
-#             matrix[rr] *= scale
-
-#             self.assertTrue((matrix == np.array(mat)).all())
-    
-#     def test_addScaleRow(self):
-
-#         for _ in range(10):
-#             r,c = np.random.randint(low=1,high=25,size=2)
-#             matrix = np.random.random((r,c))
-
-#             mat = matrix.tolist()
-
-#             r1,r2 = np.random.randint(0,r,size=2)
-#             with self.assertRaises(ValueError):
-#                 addScaledRow(mat,r1,r2,0)
-
-#             scale = np.random.randint(low=1,high=10)
-#             addScaledRow(mat,r1,r2,scale)
-#             matrix[r1] += scale * matrix[r2]
-
-#             self.assertTrue((matrix == np.array(mat)).all())
+suite = unittest.TestLoader().loadTestsFromTestCase(LinearRegressionTestCase)
+unittest.TextTestRunner(verbosity=3).run(suite)
 
 
-#     def test_gj_Solve(self):
+# In[ ]:
 
-#         for _ in range(10):
-#             r = np.random.randint(low=3,high=10)
-#             A = np.random.randint(low=-10,high=10,size=(r,r))
-#             b = np.arange(r).reshape((r,1))
 
-#             x = gj_Solve(A.tolist(),b.tolist())
-#             if np.linalg.matrix_rank(A) < r:
-#                 self.assertEqual(x,None)
-#             else:
-#                 # Ax = matxMultiply(A.tolist(),x)
-#                 Ax = np.dot(A,np.array(x))
-#                 loss = np.mean((Ax - b)**2)
-#                 # print Ax
-#                 # print loss
-#                 self.assertTrue(loss<0.1)
-# testcases = LinearRegressionTestCase()
-# suite = unittest.TestLoader().loadTestsFromModule(testcases)
-# unittest.TextTestRunner().run(suite)
 
 
 # In[ ]:
